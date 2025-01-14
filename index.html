@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poke API | Landing Page</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="bg-icons">
+      <img id="bg-icon1" src="assets/images/pokeball-icon 1.svg" alt="Icon 1">
+      <img id="bg-icon2" src="assets/images/pokeball-icon 1.svg" alt="Icon 2">
+    </div>
+    <header class="header">
+      <img src="assets/images/icon.png" alt="Logo">
+      <i class="fa-solid fa-bars"></i>
+    </header>
+    <main class="main">
+      <div class="search-container">
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" name="pokemon-input" id="pokemon-input" placeholder="Nome ou ID do Pokémon">
+        </div>
+        <button class="btn-search" type="submit">Buscar</button>
+      </div>
+      <div class="pokemon-container">
+        <div class="image">
+          <img src="assets/images/(2).png" alt="Pokemon">
+        </div>
+        <div class="infos">
+          <h1 id="title">Bulbasour</h1>
+          <div class="types">
+            <p>Grass</p>
+            <p>Poison</p>
+          </div>
+          <div class="width-container">
+            <p class="width-poke">Height <span id="height">0.7m</span></p>
+            <p class="width-poke">Weight <span id="weight">0.7m</span></p>
+          </div>
+          <div class="stats-container">
+            <p id="hp" class="stats">hp <span id="hp-value">47</span></p>
+            <p id="atk" class="stats">atk <span id="atk-value">47</span></p>
+            <p id="def" class="stats">def <span id="def-value">47</span></p>
+            <p id="spa" class="stats">spa <span id="spa-value">47</span></p>
+            <p id="spd" class="stats">spd <span id="spd-value">47</span></p>
+            <p id="spdd" class="stats">spdd <span id="spdd-value">47</span></p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
