@@ -5,7 +5,9 @@ const fetchPokemon = async () => {
 
     showPokemon({
       name: pokemon.species.name,
-      type: pokemon.types[0].type.name,
+      id: pokemon.id,
+      image: pokemon.sprites.other["official-artwork"].front_default,
+      type: pokemon.types.map((typeInfo => typeInfo.type.name)), //percorrendo e criando um novo array com o tipo de cada pokemon
       height: pokemon.height,
       weight: pokemon.weight,
       hp: pokemon.stats[0].base_stat,
@@ -22,9 +24,7 @@ const fetchPokemon = async () => {
 }
 
 const showPokemon = (json) => {
-  console.log(json.name)
-  console.log(json.hp)
-  console.log(json.speed)
+  console.log(json)
 }
 
 fetchPokemon()
