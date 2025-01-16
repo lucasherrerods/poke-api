@@ -1,6 +1,8 @@
+const pokemonContainer = document.querySelector('.pokemon-container')
+
 const fetchPokemon = async () => {
   try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/1`)
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/5`)
     const pokemon = await response.json()
 
     showPokemon({
@@ -24,7 +26,19 @@ const fetchPokemon = async () => {
 }
 
 const showPokemon = (json) => {
-  console.log(json)
+
+  pokemonContainer.style.display = 'flex'
+
+  document.querySelector('#title').textContent = `${json.name} #${json.id}`
+  document.querySelector('#img-pokemon').setAttribute('src', json.image)
+  document.querySelector('#height').textContent = `${json.height}m`
+  document.querySelector('#weight').textContent = `${json.weight}kg`
+  document.querySelector('#hp-value').textContent = json.hp
+  document.querySelector('#atk-value').textContent = json.atk
+  document.querySelector('#def-value').textContent = json.def
+  document.querySelector('#spa-value').textContent = json.special_atk
+  document.querySelector('#spd-value').textContent = json.special_def
+  document.querySelector('#spdd-value').textContent = json.speed
 }
 
 fetchPokemon()
