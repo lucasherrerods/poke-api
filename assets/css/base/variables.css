@@ -1,0 +1,14 @@
+:root {
+  --font-small: 13px;
+  --font-medium: 14px;
+  --font-large: 16px;
+  --color-bg: #f6f8fc;
+  --color-primary: #df2140;
+  --color-secondary: #fff;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --stat-atk: #ff994d;
+  --stat-def: #eecd3d;
+  --stat-spa: #85ddff;
+  --stat-spd: #96da83;
+  --stat-spdd: #fb94a8;
+}

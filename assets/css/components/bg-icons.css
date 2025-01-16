@@ -1,0 +1,17 @@
+.bg-icons img {
+  height: 150px;
+  max-width: 150px;
+}
+
+.bg-icons #bg-icon1 {
+  position: absolute;
+  top: 15%;
+  right: 0;
+}
+
+.bg-icons #bg-icon2 {
+  position: absolute;
+  transform: scaleX(-1);
+  bottom: 15%;
+  left: 0;
+}

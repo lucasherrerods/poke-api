@@ -1,0 +1,26 @@
+.pokemon-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 50px auto;
+  background-color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.pokemon-container img {
+  width: 350px;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  padding: 0 60px 20px 0;
+}
+
+.infos h1 {
+  font-size: 24px;
+  text-transform: capitalize;
+}
