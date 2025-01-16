@@ -1,5 +1,6 @@
 const form = document.querySelector('.search-container')
 const pokemonContainer = document.querySelector('.pokemon-container')
+const alert = document.querySelector('#alert')
 const typesContainer = document.querySelector('.types')
 
 form.addEventListener('submit', async (event) => {
@@ -9,13 +10,15 @@ form.addEventListener('submit', async (event) => {
   const value = inputPokemon.trim().toLowerCase()
 
   if (!value) {
-    throw new Error('Pokémon não encontrado')
+    alert.classList.add('show')
+    return showAlert('Pokémon não encontrado')
   }
 
   try {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${value}`)
     const pokemon = await response.json()
 
+    alert.style.display = 'none'
     showPokemon({
       name: pokemon.species.name,
       id: pokemon.id,
@@ -32,12 +35,16 @@ form.addEventListener('submit', async (event) => {
     })
 
   } catch (error) {
-    throw new Error(`Erro ao buscar os dados do Pokémon: ${error}`)
+    pokemonContainer.style.display = 'none'
+    alert.style.display = 'flex'
+    showAlert('Erro ao buscar os dados do Pokémon.')
   }
 })
 
 const showPokemon = (json) => {
+  showAlert('')
   pokemonContainer.style.display = 'flex'
+
   let newElement = ''
 
   document.querySelector('#title').textContent = `${json.name} #${json.id}`
@@ -58,4 +65,8 @@ const showPokemon = (json) => {
     `
   })
   typesContainer.innerHTML = newElement
+}
+
+const showAlert = (msg) => {
+  alert.innerHTML = msg
 }

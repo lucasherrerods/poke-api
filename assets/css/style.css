@@ -225,3 +225,23 @@ i {
 #spdd {
   background-color: var(--stat-spdd);
 }
+
+#alert {
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 30px auto;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  transition: opacity 0.5s ease, height 0.5s ease;
+}
+
+#alert.show {
+  opacity: 1;
+  height: auto;
+}
