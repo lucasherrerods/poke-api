@@ -1,8 +1,9 @@
 const pokemonContainer = document.querySelector('.pokemon-container')
+const typesContainer = document.querySelector('.types')
 
 const fetchPokemon = async () => {
   try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/5`)
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/25`)
     const pokemon = await response.json()
 
     showPokemon({
@@ -26,9 +27,9 @@ const fetchPokemon = async () => {
 }
 
 const showPokemon = (json) => {
-
   pokemonContainer.style.display = 'flex'
-
+  let newElement = ''
+  
   document.querySelector('#title').textContent = `${json.name} #${json.id}`
   document.querySelector('#img-pokemon').setAttribute('src', json.image)
   document.querySelector('#height').textContent = `${json.height}m`
@@ -39,6 +40,14 @@ const showPokemon = (json) => {
   document.querySelector('#spa-value').textContent = json.special_atk
   document.querySelector('#spd-value').textContent = json.special_def
   document.querySelector('#spdd-value').textContent = json.speed
+
+  //criando dinamicamente a quantidade especifica de tipo de cada pokemon
+  json.type.forEach(type => {
+    newElement += `
+      <p>${type}</p>
+    `
+  })
+  typesContainer.innerHTML = newElement
 }
 
 fetchPokemon()
