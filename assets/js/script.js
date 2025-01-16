@@ -1,9 +1,19 @@
+const form = document.querySelector('.search-container')
 const pokemonContainer = document.querySelector('.pokemon-container')
 const typesContainer = document.querySelector('.types')
 
-const fetchPokemon = async () => {
+form.addEventListener('submit', async (event) => {
+  event.preventDefault()
+
+  const inputPokemon = document.querySelector('#pokemon-input').value
+  const value = inputPokemon.trim().toLowerCase()
+
+  if (!value) {
+    throw new Error('Pokémon não encontrado')
+  }
+
   try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/25`)
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${value}`)
     const pokemon = await response.json()
 
     showPokemon({
@@ -24,12 +34,12 @@ const fetchPokemon = async () => {
   } catch (error) {
     throw new Error(`Erro ao buscar os dados do Pokémon: ${error}`)
   }
-}
+})
 
 const showPokemon = (json) => {
   pokemonContainer.style.display = 'flex'
   let newElement = ''
-  
+
   document.querySelector('#title').textContent = `${json.name} #${json.id}`
   document.querySelector('#img-pokemon').setAttribute('src', json.image)
   document.querySelector('#height').textContent = `${json.height}m`
@@ -49,5 +59,3 @@ const showPokemon = (json) => {
   })
   typesContainer.innerHTML = newElement
 }
-
-fetchPokemon()
